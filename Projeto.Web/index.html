@@ -1,0 +1,48 @@
+﻿<html ng-app="app">
+<head>
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+
+    <!-- Angular -->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+
+    <!-- JQuery e bootstrap -->
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+
+    <!-- Modulo -->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/cadastro_controller.js"></script>
+    <script src="app/controllers/consulta_controller.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h3>Projeto CRUD 005 Client - Entity Framework/WebApi</h3>
+        <hr />
+
+        <h4>Time</h4>
+        <a href="#cadastrarTime">Cadastrar</a>
+        <br />
+        <a href="#consultarTime">Consultar</a>
+        <hr />
+
+        <h4>Jogador</h4>
+        <a href="/Jogador/Cadastro">Cadastrar</a>
+        <br />
+        <a href="/Jogador/Consulta">Consultar</a>
+        <hr />
+
+    </div>
+
+    <div ng-view class="col-xs-12">
+    </div>
+
+</body>
+</html>
