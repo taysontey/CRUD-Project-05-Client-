@@ -1,0 +1,56 @@
+﻿
+<div class="container">
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nome:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="jogador.Nome" data-ng-model="jogador.Nome" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Apelido:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="jogador.Apelido" data-ng-model="jogador.Apelido" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Posição:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="jogador.Posicao" data-ng-model="jogador.Posicao" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Data de Nascimento:</label>
+            <div class="col-md-2">
+                <input type="date" class="form-control" name="jogador.DataNascimento" data-ng-model="jogador.DataNascimento" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Selecione o Time:</label>
+            <div class="col-md-2">
+                <select name="jogador.IdTime" data-ng-model="jogador.IdTime">
+                    <option value="">Escolha um time...</option>
+                    <option data-ng-repeat="time in times" value="{{time.IdTime}}">{{time.Nome}}</option>
+                </select>
+            </div>
+        </div>
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button class="btn btn-default" name="btnCadastrar" data-ng-click="cadastrar(jogador)">Cadastrar Jogador</button>
+            </div>
+        </div>
+
+        <span>{{msg}}</span>
+    </div>
+
+</div>
+
+

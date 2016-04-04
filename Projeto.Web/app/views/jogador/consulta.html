@@ -1,0 +1,54 @@
+﻿
+<div class="container">
+
+    <div class="container" style="text-align:center">
+        <h3>Lista de Jogadores</h3>
+        <br />
+    </div>
+
+    <table id="lista_jogadores" class="table table-hover" style="text-align:center">
+        <thead>
+            <tr>
+                <th style="text-align:center">
+                    Código
+                </th>
+                <th style="text-align:center">
+                    Nome
+                </th>
+                <th style="text-align:center">
+                    Apelido
+                </th>
+                <th style="text-align:center">
+                    Posição
+                </th>
+                <th style="text-align:center">
+                    Data de Nascimento
+                </th>
+                <th style="text-align:center">
+                    Time
+                </th>
+                <th style="text-align:center">
+                    Opções
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr data-ng-repeat="jogador in jogadores">
+                <td>{{jogador.IdJogador}}</td>
+                <td>{{jogador.Nome}}</td>
+                <td>{{jogador.Apelido}}</td>
+                <td>{{jogador.Posicao}}</td>
+                <td>{{jogador.DataNascimento}}</td>
+                <td>{{jogador.Time}}</td>
+                <td>
+                    <button class="btn-link" name="btnEditar" data-ng-click="editar(jogador)">Editar</button>
+                    <button class="btn-link" name="btnExcluir" data-ng-click="excluir(jogador)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <span>{{msg}}</span>
+
+</div>
