@@ -39,16 +39,6 @@ app.controller('timeCtrl', function ($scope, $http) {
 
     $scope.msg = "";
 
-    $scope.cadastrar = function (time) {
-        $http.post("http://localhost:49199/services/time/cadastrar", time)
-        .success(function (msg) {
-            $scope.msg = msg;
-        })
-        .error(function (e) {
-            $scope.msg = e;
-        });
-    };
-
     $http.get("http://localhost:49199/services/time/consultar")
     .success(function (lista) {
         $scope.times = lista;
@@ -56,6 +46,31 @@ app.controller('timeCtrl', function ($scope, $http) {
     .error(function (e) {
         $scope.msg = e;
     });
+
+    $scope.cadastrar = function (time) {
+        $http.post("http://localhost:49199/services/time/cadastrar", time)
+        .success(function (msg) {
+            $scope.msg = msg;
+            $scope.time = "";
+        })
+        .error(function (e) {
+            $scope.msg = e;
+        });
+    };
+
+    $scope.excluir = function (id) {
+        $http.delete("http://localhost:49199/services/time/excluir?id=" + id)
+        .success(function (msg) {
+            $scope.msg = msg;
+
+            window.setTimeout(function () {
+                location.reload()
+            }, 3000)
+        })
+        .error(function (e) {
+            $scope.msg = e;
+        });
+    };
 
 });
 
@@ -83,10 +98,24 @@ app.controller('jogadorCtrl', function ($scope, $http) {
         $http.post("http://localhost:49199/services/jogador/cadastrar", jogador)
         .success(function (msg) {
             $scope.msg = msg;
+            $scope.jogador = "";
         })
         .error(function (e) {
             $scope.msg = e;
         });
     };
 
+    $scope.excluir = function (id) {
+        $http.delete("http://localhost:49199/services/jogador/excluir?id=" + id)
+        .success(function (msg) {
+            $scope.msg = msg;
+
+            window.setTimeout(function () {
+                location.reload()
+            }, 3000)
+        })
+        .error(function (e) {
+            $scope.msg = e;
+        });
+    };
 });
