@@ -38,6 +38,7 @@ app.config(
 app.controller('timeCtrl', function ($scope, $http) {
 
     $scope.msg = "";
+    $scope.display = "display:none";
 
     $http.get("http://localhost:49199/services/time/consultar")
     .success(function (lista) {
@@ -56,6 +57,34 @@ app.controller('timeCtrl', function ($scope, $http) {
         .error(function (e) {
             $scope.msg = e;
         });
+    };
+
+    $scope.editar = function (id) {
+        $http.get("http://localhost:49199/services/time/editar?id=" + id)
+        .success(function (resultado) {
+            $scope.time = resultado;
+            $scope.display = "display:block";
+        })
+        .error(function (e) {
+            $scope.msg = e;
+        });
+    };
+
+    $scope.atualizar = function (time) {
+        $http.put("http://localhost:49199/services/time/atualizar", time)
+        .success(function (msg) {
+            $scope.msg = msg;
+            window.setTimeout(function () {
+                location.reload()
+            }, 3000)
+        })
+        .error(function (e) {
+            $scope.msg = e;
+        });
+    };
+
+    $scope.cancelar = function () {
+        $scope.display = "display:none";
     };
 
     $scope.excluir = function (id) {

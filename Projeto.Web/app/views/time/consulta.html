@@ -1,6 +1,37 @@
 ﻿
 <div class="container">
     
+    <div class="form-horizontal" style="{{display}}">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Código:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="time.IdTime" data-ng-model="time.IdTime" value="{{time.IdTime}}" readonly />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nome:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="time.Nome" data-ng-model="time.Nome" value="{{time.Nome}}" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Data de Fundação:</label>
+            <div class="col-md-2">
+                <input type="text" onblur="(this.type='text')" onfocus="(this.type='date')" class=" form-control" name="time.DataFundacao" data-ng-model="time.DataFundacao" value="{{time.DataFundacao}}" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button class="btn btn-default" name="btnAtualizar" data-ng-click="atualizar(time)">Atualizar</button>
+                <button class="btn btn-default" name="btnCancelar" data-ng-click="cancelar()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
     <div class="container" style="text-align:center">
         <h3>Lista de Times</h3>
         <br />
