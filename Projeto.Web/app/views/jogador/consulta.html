@@ -1,6 +1,67 @@
 ﻿
 <div class="container">
 
+    <div class="form-horizontal" style="{{display}}">
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Código:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="jogador.IdJogador" data-ng-model="jogador.IdJogador" value="{{jogador.IdJogador}}" readonly />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nome:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="jogador.Nome" data-ng-model="jogador.Nome" value="{{jogador.Nome}}" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Apelido:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="jogador.Apelido" data-ng-model="jogador.Apelido" value="{{jogador.Apelido}}" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Posição:</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" name="jogador.Posicao" data-ng-model="jogador.Posicao" value="{{jogador.Posicao}}" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Data de Nascimento:</label>
+            <div class="col-md-2">
+                <input type="text" onblur="(this.type='text')" onfocus="(this.type='date')" class="form-control" name="jogador.DataNascimento" data-ng-model="jogador.DataNascimento" value="{{jogador.DataNascimento}}" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Selecione o Time:</label>
+            <div class="col-md-2">
+                <select name="jogador.IdTime" data-ng-model="jogador.IdTime">
+
+                    <option value="{{jogador.IdTime}}" selected="selected">{{jogador.Time}}</option>
+
+                    <option value="">Escolha um time...</option>
+                    <option data-ng-repeat="time in times" value="{{time.IdTime}}">{{time.Nome}}</option>
+
+                </select>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button class="btn btn-default" name="btnAtualizar" data-ng-click="atualizar(jogador)">Atualizar</button>
+                <button class="btn btn-default" name="btnCancelar" data-ng-click="cancelar()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
     <div class="container" style="text-align:center">
         <h3>Lista de Jogadores</h3>
         <br />

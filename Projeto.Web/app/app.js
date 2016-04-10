@@ -106,6 +106,7 @@ app.controller('timeCtrl', function ($scope, $http) {
 app.controller('jogadorCtrl', function ($scope, $http) {
 
     $scope.msg = "";
+    $scope.display = "display:none";
 
     $http.get("http://localhost:49199/services/jogador/carregarTimes")
     .success(function (lista) {
@@ -132,6 +133,34 @@ app.controller('jogadorCtrl', function ($scope, $http) {
         .error(function (e) {
             $scope.msg = e;
         });
+    };
+
+    $scope.editar = function (id) {
+        $http.get("http://localhost:49199/services/jogador/editar?id=" + id)
+        .success(function (resultado) {
+            $scope.jogador = resultado;
+            $scope.display = "display:block";
+        })
+        .error(function (e) {
+            $scope.msg = e;
+        });
+    };
+
+    $scope.atualizar = function (jogador) {
+        $http.put("http://localhost:49199/services/jogador/atualizar", jogador)
+        .success(function (msg) {
+            $scope.msg = msg;
+            window.setTimeout(function () {
+                location.reload()
+            }, 3000)
+        })
+        .error(function (e) {
+            $scope.msg = e;
+        });
+    };
+
+    $scope.cancelar = function () {
+        $scope.display = "display:none";
     };
 
     $scope.excluir = function (id) {
