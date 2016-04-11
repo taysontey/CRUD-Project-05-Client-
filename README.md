@@ -1,1 +1,1 @@
-Cliente para utilizar os serviços do projeto "CRUD-Project-05".
+Cliente em AngularJS para utilizar os serviços do projeto "CRUD-Project-05".
